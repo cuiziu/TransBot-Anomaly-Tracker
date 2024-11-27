@@ -76,7 +76,8 @@ Mapping 이후 Goal position을 입력하면 해당 위치로 이동하는 모�
    - Gmapping, hector 등
 2. **트랜스 봇의 상세한 동작 시나리오 작성**
 3. **Package customizing**
-   - bring-up, navigation 등 package를 필요한 기능만 모아서 launch 시킬 수 있도록 수정하고 repackaging
+   - bring-up, navigation 등 transbot package에서 필요한 기능만 모아서 repackaging
+   - 완료 후, ROS package 수정
 
 
 ---
@@ -120,8 +121,8 @@ Mapping 이후 Goal position을 입력하면 해당 위치로 이동하는 모�
 | **기능**         | **최초 검토된 모델**              |        **최종 선정된 모델**                   | **이유**                                          |
 |-----------------------|------------------------------- | ----------------|--------------------------------------------------|
 | 객체 탐지              | EfficientNet, MobileNet, 3D CNN   |     YOLO (Tiny 버전)        | 실시간 객체 탐지 성능과 경량화된 구조, Jetson Nano에서 실시간 처리 가능.  |
-| MobileNet + LSTM      | GRU, LSTM, TSM                   |     GRU, LSTM, TSM       | 시간적 패턴 분석 기능, 상황에 맞는 유연한 조합 사용 가능.         |
-| 3D CNN + GRU          | EfficientNet, MobileNet                   |  YOLO (내장된 CNN 기능)         | YOLO (내장된 CNN 기능)         |
+| 시계열 분석 모델        | GRU, LSTM, TSM                   |     GRU, LSTM, TSM       | 시간적 패턴 분석 기능, 상황에 맞는 유연한 조합 사용 가능.         |
+| backbone 모델(YOLO 미사용시) | EfficientNet, MobileNet                   |  YOLO (내장된 CNN 기능)         | YOLO (내장된 CNN 기능)         |
 
 ---
 
@@ -170,9 +171,10 @@ D --> E[행동 분류 및 경고]
 
 ### 1. 데이터 분리 및 정리
 - **목적**: 구글 드라이브에 업로드된 학습 데이터 준비를 위한 구조 정리.
+- **사용 데이터**: AIHub CCTV이상행동 데이터 (url: https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=data&dataSetSn=171)
 - **작업 내용**:
   - 비디오(mp4)와 라벨(XML) 파일 매칭.
-  - 불필요한 파일 제거 및 행동 유형볋로 이름 변경 후 정리.
+  - 불필요한 파일 제거 및 행동 유형별로 이름 변경 후 정리.
  
 - **구현 코드**:
   - `rename_and_move_files_with_matching()` 함수:
@@ -219,20 +221,26 @@ D --> E[행동 분류 및 경고]
 
   - BlazePose 적용
     ![BlazePose 적용 결과](readme_img/blazepose.png)
- 
+
 
 #### **4-2 엣지 검출 기반 방식**
-- **목적**: 주요 구조적 특징 강조하여 분석 효과 향상.
+- **목적**: 모델 경량화와 사람 외관의 구조적 특징 강조하여 분석 효과 향상.
 - **작업 내용**:
+  - 사용하는 데이터셋은 실내 크로마키 영상과 야외 촬영 영상 2가지로 각각 저처리를 진행.
+  - 크로마키 영상 경우 별도의 배경 없이 사람의 윤곽선만 검출.
+  - 야외 영상 경우 별도로 배경 제거 하지않고 진행.
   - Gaussian Blur, Median Filter 등으로 노이즈 제거.
   - Canny Edge Detection으로 윤곽선을 추출하고 저장.
 - **작업 과정 및 문제해결**
-  - 
+  - 이미지 필터링 후 윤곽선 검출 테스트 결과
 ![ROI 탐지 예제](readme_img/edge_test.png)
+  - 영상 배경 제거 및 필터링 후 윤곽선 검출 테스트 결과
 ![ROI 탐지 예제](readme_img/non_green_edge.png)
+  - 최종 결과: 배경 제거 후 median 필터를 적용한 전처리 방식 선정 
+![ROI 탐지 예제](readme_img/non_green_edge2.png)
 
-
-
+  - 크로마키 영상마다의 배경 픽셀값이 상이하여 표본 영상을 선정하여 배경제거에 필요한 HSV값 범위 추출
+![ROI 탐지 예제](readme_img/non_green_edge3.png)
 
 ### 5. 추후 계획
 #### **5-1 미디어파이프 기반 파이프라인 생성**
