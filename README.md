@@ -47,7 +47,14 @@ Jetson nano에서 Visualization tool을 사용하기 어렵기 때문에 Laptop�
 
 ## 통신 및 제어:
 하나의 PC를 통해 Mapping하는 모습
-![슬라이드2](https://github.com/user-attachments/assets/34c045cb-fa00-455e-b37e-487bfc7696고 repackaging
+![슬라이드2](https://github.com/user-attachments/assets/5efc8f4e-f1f1-4837-a281-0079c356e6cd)
+
+![슬라이드3](https://github.com/user-attachments/assets/a41d04bb-2eb0-473f-83a4-03bc3efd4b05)
+
+
+![슬라이드4](https://github.com/user-attachments/assets/433bc42c-ab43-4b4b-be45-9958c7c3855a)
+
+고 repackaging
 ---
 
 # AI 모델(S/W)
