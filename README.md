@@ -72,7 +72,7 @@ Mapping 이후 Goal position을 입력하면 해당 위치로 이동하는 모�
 1. **mapping algorithm 학습**
    - Gmapping, hector 등
 2. **트랜스 봇의 상세한 동작 시나리오 작성**
-3. **Package custom**
+3. **Package customizing**
    - bring-up, navigation 등 package를 필요한 기능만 모아서 launch 시킬 수 있도록 수정 및 repackaging
 ---
 
