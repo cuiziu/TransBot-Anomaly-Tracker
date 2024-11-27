@@ -38,8 +38,28 @@ CCTV 사각지대를 보완하고, 실시간 범죄 탐지로 주거 환경을 �
 
 ---
 # 트랜스 봇(H/W)
+## Jetson nano <-> Ubuntu 통신
+![슬라이드1](https://github.com/user-attachments/assets/a42c00e4-76d4-4536-8fc1-5dfcf12d9892)
+1. **Linux 연결**: Ubuntu 18.04가 LAN을 인식하지 못함 -> Window를 통해 VMWare로 접속
+2. **Jeton 연결**: Window를 통해 VNC로 접속
 
+## 통신 및 제어: 하나의 PC를 통해 Mapping하는 모습
+![슬라이드2](https://github.com/user-attachments/assets/34c045cb-fa00-455e-b37e-487bfc769696)
+1. **좌측 사진**: PC화면
+2. **우측 사진**: 동작모습
 
+## 로봇 미들웨어(M/W): 하드웨어와 애플리케이션 소프트웨어 사이에서 동작하며, 서로 상호작용할 수 있도록 데이터 전달과 관리 기능을 제공
+![슬라이드3](https://github.com/user-attachments/assets/39097cce-71d6-4d69-b3ab-0320d9ea3a69)
+1. **OS 통신**: ROS를 통해 Master(Jetpack)-Slave(Linux) 통신
+2. **어플리케이션**:
+   - SLAM: Localization, Mapping
+   - Rviz: Visualization
+3. **ROS Packages**:
+   - Bring-up packages: Lidar, Camera, Motor 등의 H/W를 동작하는 ROS node의 package
+   - Navigation packages: 장애물 회피, Mapping, Navigation 등의 ROS node의 package
+
+## 트랜스 봇 동작 모습
+![슬라이드4](https://github.com/user-attachments/assets/ec45ae6a-45aa-40d5-b856-00921d795892)
 
 ---
 
