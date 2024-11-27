@@ -39,7 +39,7 @@
 # 트랜스 봇(H/W)
 
 ## Jetson nano <-> Ubuntu 통신
-
+Jetson nano에서 Visualization tool을 사용하기 어렵기 때문에 Laptop과 연결하여 사용
 ![슬라이드1](https://github.com/user-attachments/assets/a42c00e4-76d4-4536-8fc1-5dfcf12d9892)
 
 1. **Linux 연결**: Ubuntu 18.04가 LAN을 인식하지 못함 -> Window를 통해 VMWare로 접속
