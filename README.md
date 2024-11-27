@@ -233,9 +233,9 @@ Mapping 이후 Goal position을 입력하면 해당 위치로 이동하는 모�
 
 ### 5. 추후 계획
 #### **5-1 미디어파이프 기반 파이프라인 생성**
-  - blaze pose: 
+  - BlazePose: 기존 BlazePose의 한계(가려진 관절 처리, 복잡한 동작 추적의 한계)를 보완하기 위해 OpenPose-Lite를 활용하여 성능 비교 및 추가 테스트를 진행할 계획.
     
-  - YOLOv7 & YOLOv8 모델 Jetson Nano적용 테스트: 기존의 MediaPipe, blaze pose과 같은 모델과 달리 1stage로 KeyPoint 추출 가능
+  - YOLOv7 & YOLOv8 모델 Jetson Nano 적용 테스트: 기존 MediaPipe 및 BlazePose와 달리, YOLOv7 및 YOLOv8의 경량화 모델은 1단계(1-stage)로 KeyPoint를 추출할 수 있는 점을 활용해 Jetson Nano 환경에서 성능 평가를 진행할 예정.
 
 #### **5-2 엣지 검출 기반 방식**
   - 정상 행동 데이터 엣지 검출 작업 
