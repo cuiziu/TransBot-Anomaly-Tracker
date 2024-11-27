@@ -47,33 +47,7 @@ Jetson nano에서 Visualization tool을 사용하기 어렵기 때문에 Laptop�
 
 ## 통신 및 제어:
 하나의 PC를 통해 Mapping하는 모습
-![슬라이드2](https://github.com/user-attachments/assets/34c045cb-fa00-455e-b37e-487bfc769696)
-
-1. **좌측 사진**: PC화면
-2. **우측 사진**: 동작모습
-
-## 로봇 미들웨어(M/W)
-하드웨어와 애플리케이션 소프트웨어 사이에서 동작하며, 서로 상호작용할 수 있도록 데이터 전달과 관리 기능을 제공
-![슬라이드3](https://github.com/user-attachments/assets/39097cce-71d6-4d69-b3ab-0320d9ea3a69)
-
-1. **OS 통신**: ROS를 통해 Master(Jetpack)-Slave(Linux) 통신
-2. **어플리케이션**:
-   - SLAM: Localization, Mapping
-   - Rviz: Visualization
-3. **ROS Packages**:
-   - Bring-up packages: Lidar, Camera, Motor 등의 H/W를 동작하는 ROS node의 package
-   - Navigation packages: 장애물 회피, Mapping, Navigation 등의 ROS node의 package
-
-## 트랜스 봇 동작 모습
-Mapping 이후 Goal position을 입력하면 해당 위치로 이동하는 모습
-![슬라이드4](https://github.com/user-attachments/assets/ec45ae6a-45aa-40d5-b856-00921d795892)
-
-## H/W 추후 계획
-1. **mapping algorithm 학습**
-   - Gmapping, hector 등
-2. **트랜스 봇의 상세한 동작 시나리오 작성**
-3. **Package customizing**
-   - bring-up, navigation 등 package를 필요한 기능만 모아서 launch 시킬 수 있도록 수정 및 repackaging
+![슬라이드2](https://github.com/user-attachments/assets/34c045cb-fa00-455e-b37e-487bfc7696고 repackaging
 ---
 
 # AI 모델(S/W)
