@@ -65,8 +65,15 @@ Jetson nano에서 Visualization tool을 사용하기 어렵기 때문에 Laptop�
    - Navigation packages: 장애물 회피, Mapping, Navigation 등의 ROS node의 package
 
 ## 트랜스 봇 동작 모습
+Mapping 이후 Goal position을 입력하면 해당 위치로 이동하는 모습
 ![슬라이드4](https://github.com/user-attachments/assets/ec45ae6a-45aa-40d5-b856-00921d795892)
 
+## H/W 추후 계획
+1. **mapping algorithm 학습**
+   - Gmapping, hector 등
+2. **트랜스 봇의 상세한 동작 시나리오 작성**
+3. **Package custom**
+   - bring-up, navigation 등 package를 필요한 기능만 모아서 launch 시킬 수 있도록 수정 및 repackaging
 ---
 
 # AI 모델(S/W)
