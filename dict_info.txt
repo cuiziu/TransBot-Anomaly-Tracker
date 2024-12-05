@@ -1,0 +1,22 @@
+project/
+├── data/                    # 데이터 관련 폴더
+│   ├── raw/                 # 원본 데이터
+│   ├── processed/           # 전처리된 데이터 저장
+│   ├── loaders/             # 데이터 로더 파일들
+│   │      ├── data_loader.py
+│   │      ├── loader_test.py
+│   └── augmentations/       # 데이터 증강 및 전처리 함수 모음
+├── models/                  # 모델 관련 폴더
+│   ├── architectures/       # 각종 모델 정의 파일들 (3D-CNN, ConvLSTM, 등)
+│   ├── trainers/            # 모델 학습 및 평가 로직
+│   └── utils/               # 모델 관련 유틸리티 함수 (예: 가중치 저장, 불러오기)
+├── experiments/             # 실험 설정 및 결과 저장
+│   ├── configs/             # 실험 설정 파일 (JSON, YAML 형식)
+│   └── logs/                # 각 실험별 학습 로그 및 성능 지표
+├── outputs/                 # 결과 저장 폴더
+│   ├── models/              # 훈련된 모델 저장
+│   └── results/             # 예측 결과 저장 (예: 영상 출력 등)
+├── main.py                  # 전체 파이프라인을 실행하는 메인 스크립트
+└── utils/                   # 공통 유틸리티 함수 모음
+    ├── logger.py            # 로그 설정 파일
+    └── metrics.py           # 성능 평가 함수들
